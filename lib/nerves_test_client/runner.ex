@@ -1,13 +1,13 @@
 defmodule NervesTestClient.Runner do
   use GenServer
 
-  alias PhoenixClient.{Channel, Message}
+  alias PhoenixClient.{Socket, Channel, Message}
 
   def start_link(opts) do
     GenServer.start_link(__MODULE__, opts)
   end
 
-  def init(_opts) do
+  def init(opts) do
     socket = opts[:socket]
     tag = opts[:tag]
     serial = opts[:serial]
@@ -25,7 +25,7 @@ defmodule NervesTestClient.Runner do
   end
 
   def handle_continue(nil, s) do
-    {:ok, {test_io, test_results}} = ExUnitRelease.test(path: s.test_path)
+    {:ok, {test_io, test_results}} = ExUnitRelease.run(path: s.test_path)
     send(self(), :connect)
     {:noreply, %{s | test_results: test_results, test_io: test_io}}
   end

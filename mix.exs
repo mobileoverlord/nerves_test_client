@@ -27,6 +27,8 @@ defmodule NervesTestClient.MixProject do
       {:websocket_client, "~> 1.3"},
       {:jason, "~> 1.0"},
       {:nerves_hub, "~> 0.7"},
+      {:nerves_key, "~> 0.5"},
+      {:nerves_key_pkcs11, "~> 0.2"},
       {:vintage_net, "~> 0.3"},
       {:busybox, "~> 0.1"}
     ]
