@@ -29,8 +29,7 @@ defmodule NervesTestClient.MixProject do
       {:nerves_hub, "~> 0.7"},
       {:nerves_key, "~> 0.5"},
       {:nerves_key_pkcs11, "~> 0.2"},
-      {:vintage_net, "~> 0.3"},
-      {:busybox, "~> 0.1"}
+      {:vintage_net, "~> 0.9"}
     ]
   end
 end
